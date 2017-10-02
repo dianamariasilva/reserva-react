@@ -35,23 +35,23 @@
     }
   ];
 
-// var tags = {
-//     numberOfAnswered: document.getElementById('numberOfAnswered'),
-//     completedPercent: document.getElementById('completedPercent'),
-//     qImage: document.getElementById('qImage'),
-//     question: document.getElementById('Question'),
-//     a1: document.getElementById('a1'),
-//     a2: document.getElementById('a2'),
-//     a3: document.getElementById('a3'),
-//     bar: document.getElementById('progressBar'),
-//     Questions: document.getElementById('Questions'),
-//     answers: document.getElementById('myAnswers'),
-//     results: document.getElementById('myResults'),
-//     Message: document.getElementById('Message'),
-//     answersConfirmation: document.getElementById('answersConfirmation'),
-//     bSubmit: document.getElementById('bSubmit'),
-//     bStart: document.getElementById('bStart')
-//   }
+ var tags = {
+     numberOfAnswered: document.getElementById('numberOfAnswered'),
+     completedPercent: document.getElementById('completedPercent'),
+     qImage: document.getElementById('qImage'),
+     question: document.getElementById('Question'),
+     a1: document.getElementById('a1'),
+     a2: document.getElementById('a2'),
+     a3: document.getElementById('a3'),
+     bar: document.getElementById('progressBar'),
+     Questions: document.getElementById('Questions'),
+     answers: document.getElementById('myAnswers'),
+     results: document.getElementById('myResults'),
+     Message: document.getElementById('Message'),
+     answersConfirmation: document.getElementById('answersConfirmation'),
+     bSubmit: document.getElementById('bSubmit'),
+     bStart: document.getElementById('bStart')
+   }
 
 const Header = props => {
     // let index;
