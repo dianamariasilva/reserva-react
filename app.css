@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
 @import url('https://fonts.googleapis.com/css?family=Wendy+One');
+body{
+    background-image: url(../img/fondo2.jpg);
+}
+
+.container{
+    margin-top: 50px;
+    background-color: rgba(51, 15, 51, 0.77);
+}
+
 .title{
     margin-top: 50px;
     margin-bottom: 40px;
@@ -6,8 +16,8 @@
 }
 
 .progress{
-    margin-left: 70px;
-    margin-right: 70px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .progress-bar{
@@ -15,7 +25,8 @@
 }
 
 .answer{
-    margin-left: 60px;
+    margin-left: 120px;
+    font-family: 'Bree Serif', serif;
 }
 
 .square{
