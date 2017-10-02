@@ -52,7 +52,7 @@
 //     bSubmit: document.getElementById('bSubmit'),
 //     bStart: document.getElementById('bStart')
 //   }
-  
+
 const Header = props => {
     // let index;
     // let page;
@@ -65,18 +65,48 @@ const Header = props => {
     // percent = 0;
     // myAnswers = [];
     // answersSubmited = false;
-    // page = index + 1;
+    //page = index + 1;
     // percent =  page * 100 / pageN;
     return(
         <div className="text-center col-12 col-sm-12">
             <div className="row">
-                <img alt="" id="qimage"/>
-                <p className="text-left answer" id="numberOfAnswered">1 of 5 answered</p>
+                <img alt="img/avion.png" id="qimage"/>
+                <p className="text-left answer" id="numberOfAnswered">1 of {props.data.length-1} answered</p>
 			    <div className="progress">
 				    <div className="progress-bar" role="progressbar" id="progressBar">
 					    <span className="sr-only" id="completedPercent">20% completado</span>
 				    </div>
 			    </div>
+            </div>
+        </div>
+    )
+}
+
+const Section = props => {
+    return(
+        <div className="container">
+            <div class="row text-center square" width="100%" id="Questions">
+                <h2 class="title" id="Question"></h2>
+                <div class="col-md-4 col-sm-4">
+                    <a class="text-center" onclick="insertAnswer(0)" href="#" id="a1"></a>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <a class="text-center" onclick="insertAnswer(1)"  href="#" id="a2"></a>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <a class="text-center" onclick="insertAnswer(2)"  href="#" id="a3"></a>
+                </div>
+            </div>
+
+            <div class="row text-center square" width="100%" id="myAnswers" hidden>
+                <h2 class="title" id="Message"></h2>
+                <div id="answersConfirmation"></div>
+                <div class="col-md-12 col-sm-12 text-center"  id="bSubmit">
+                    <button onclick="submitAnswers()">Submit</button>
+                </div>
+                <div class="col-md-12 col-sm-12 text-center" id="bStart" hidden>
+                    <button onclick="startQuiz()">Start again</button>
+                </div>
             </div>
         </div>
     )
@@ -222,6 +252,7 @@ const Application = ({data}) => {
     return(
         <div className="reserve">
             <Header className="header" data={data}/>
+            <Section data={data} />
         </div>
     );
 }
