@@ -1,118 +1,84 @@
   let DATA = [
     {
-      img: "img/avion.png",
+      num:1,
+      img: "img/plane.svg",
       question:"Which is the oldest airline in the world?",
       alternatives:["Avianca","KML","Qantas"],
       answer:1
     },
     {
-      img: "img/barco1.png",
+      num:2,
+      img: "img/ship.svg",
       question:"Which is the largest port in the world?",
       alternatives:["Port of Shanghai","Port of Singapore","Port of Rotterdam"],
       answer:0
     },
     {
-      img: "img/bicicleta.png",
+      num:3,
+      img: "img/bycicle.svg",
       question:"What is the longest distance cycling backwards?",
       alternatives:["89.30 km","675.10 km","337.60 km"],
       answer:2
     },
     {
-      img: "img/bus.png",
+      num:4,
+      img: "img/bus.svg",
       question:"What is the highest speed ever reached by a school bus?",
       alternatives:["590 km/h","320 km/h","245 km/h"],
       answer:0
     },
     {
-      img: "img/carro.png",
+      num:5,
+      img: "img/car.svg",
       question:"What is the longest car trip on one tank of gas?",
       alternatives:["2617 km","3568 km","1732 km"],
       answer:0
-    },
-    {
-      img: "img/camion.png",
-      message:"Here are your answers:"
     }
   ];
 
- var tags = {
-     numberOfAnswered: document.getElementById('numberOfAnswered'),
-     completedPercent: document.getElementById('completedPercent'),
-     qImage: document.getElementById('qImage'),
-     question: document.getElementById('Question'),
-     a1: document.getElementById('a1'),
-     a2: document.getElementById('a2'),
-     a3: document.getElementById('a3'),
-     bar: document.getElementById('progressBar'),
-     Questions: document.getElementById('Questions'),
-     answers: document.getElementById('myAnswers'),
-     results: document.getElementById('myResults'),
-     Message: document.getElementById('Message'),
-     answersConfirmation: document.getElementById('answersConfirmation'),
-     bSubmit: document.getElementById('bSubmit'),
-     bStart: document.getElementById('bStart')
-   }
+//  var tags = {
+//      numberOfAnswered: document.getElementById('numberOfAnswered'),
+//      completedPercent: document.getElementById('completedPercent'),
+//      qImage: document.getElementById('qImage'),
+//      question: document.getElementById('Question'),
+//      a1: document.getElementById('a1'),
+//      a2: document.getElementById('a2'),
+//      a3: document.getElementById('a3'),
+//      bar: document.getElementById('progressBar'),
+//      Questions: document.getElementById('Questions'),
+//      answers: document.getElementById('myAnswers'),
+//      results: document.getElementById('myResults'),
+//      Message: document.getElementById('Message'),
+//      answersConfirmation: document.getElementById('answersConfirmation'),
+//      bSubmit: document.getElementById('bSubmit'),
+//      bStart: document.getElementById('bStart')
+//    }
 
-const Header = props => {
-    // let index;
-    // let page;
-    // let pageN;
-    // let percent;
-    // let myAnswers;
-    // let answersSubmited;
-    // index = 0;
-    // pageN = props.data.length - 1;
-    // percent = 0;
-    // myAnswers = [];
-    // answersSubmited = false;
-    //page = index + 1;
-    // percent =  page * 100 / pageN;
-    return(
-        <div className="text-center col-12 col-sm-12">
-            <div className="row">
-                <img alt="img/avion.png" id="qimage"/>
-                <p className="text-left answer" id="numberOfAnswered">1 of {props.data.length-1} answered</p>
-			    <div className="progress">
-				    <div className="progress-bar" role="progressbar" id="progressBar">
-					    <span className="sr-only" id="completedPercent">20% completado</span>
-				    </div>
-			    </div>
-            </div>
-        </div>
-    )
-}
+// let index;
+// let page;
+// let pageN;
+// let percent;
+// let myAnswers;
+// let answersSubmited;
+// index = 0;
+// pageN = props.data.length - 1;
+// percent = 0;
+// myAnswers = [];
+// answersSubmited = false;
+// page = index + 1;
+// percent =  page * 100 / pageN;
 
-const Section = props => {
-    return(
-        <div className="container">
-            <div class="row text-center square" width="100%" id="Questions">
-                <h2 class="title" id="Question"></h2>
-                <div class="col-md-4 col-sm-4">
-                    <a class="text-center" onclick="insertAnswer(0)" href="#" id="a1"></a>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <a class="text-center" onclick="insertAnswer(1)"  href="#" id="a2"></a>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <a class="text-center" onclick="insertAnswer(2)"  href="#" id="a3"></a>
-                </div>
-            </div>
-
-            <div class="row text-center square" width="100%" id="myAnswers" hidden>
-                <h2 class="title" id="Message"></h2>
-                <div id="answersConfirmation"></div>
-                <div class="col-md-12 col-sm-12 text-center"  id="bSubmit">
-                    <button onclick="submitAnswers()">Submit</button>
-                </div>
-                <div class="col-md-12 col-sm-12 text-center" id="bStart" hidden>
-                    <button onclick="startQuiz()">Start again</button>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-// function loadQuestionPage(){
+// class App extends React.Component{
+//     constructor(props){
+//         super(props);
+//         this.state= {
+//             img: props.img[0],
+//             question:props.question[0],
+//             alternatives:props.alternatives[0],
+//             answer: props.answer[0]
+//         }
+//     }
+//     loadQuestionPage(){
 //     page = index + 1;
 //     tags.numberOfAnswered.innerHTML = `${page} of ${pageN} answered`;
 
@@ -128,72 +94,136 @@ const Section = props => {
 //     tags.a2.innerHTML = data[index].alternatives[1];
 //     tags.a3.innerHTML = data[index].alternatives[2];
 
-// }
-  
-//   function insertAnswer(a){
-//     myAnswers.push(a);
-//     index++;
-//     if(index < pageN){
-//       loadQuestionPage();
-//     } else {
-//       loadAnswersConfirmation()
 //     }
-//   }
-  
-//   function loadAnswersConfirmation(){
-//     let str = "";
-//     for(let i = 0; i < pageN; i++){
-//       let user_answer = myAnswers[i];
-//       let chosenAnswer = data[i].alternatives[user_answer];
-  
-//       let correctAnswer = "";
-//       let textColors = {
-//         chosenAnswer:"text-primary",
-//         correctAnswer:"text-danger"
-//       }
-  
-//       if(answersSubmited){
-//         let data_answer = data[i].answer;
-  
-//         if(data_answer == user_answer){
-//           textColors.chosenAnswer = "text-success";
-//           textColors.correctAnswer = "text-success";
+
+//     insertAnswer(a){
+//         myAnswers.push(a);
+//         index++;
+//         if(index < pageN){
+//         loadQuestionPage();
 //         } else {
-//           correctAnswer = data[i].alternatives[data_answer];
-//           textColors.chosenAnswer = "text-danger";
-//           chosenAnswer = `<strike>${chosenAnswer}</strike>`;
-//           textColors.correctAnswer = "text-success";
+//         loadAnswersConfirmation()
 //         }
-//       }
-//       str += `
-//         <div>
-//           <span class="${textColors.chosenAnswer}">
-//             ${i+1}. ${data[i].question}
-//             ${chosenAnswer}
-//           </span>
-//           <span class="${textColors.correctAnswer}">${correctAnswer}</span>
-//         </div>`
 //     }
+
+//     loadAnswersConfirmation(){
+//         let str = "";
+//         for(let i = 0; i < pageN; i++){
+//         let user_answer = myAnswers[i];
+//         let chosenAnswer = data[i].alternatives[user_answer];
+  
+//         let correctAnswer = "";
+//         let textColors = {
+//             chosenAnswer:"text-primary",
+//             correctAnswer:"text-danger"
+//         }
+  
+//         if(answersSubmited){
+//              let data_answer = data[i].answer;
+  
+//             if(data_answer == user_answer){
+//                 textColors.chosenAnswer = "text-success";
+//                 textColors.correctAnswer = "text-success";
+//             } else {
+//                 correctAnswer = data[i].alternatives[data_answer];
+//                 textColors.chosenAnswer = "text-danger";
+//                 chosenAnswer = `<strike>${chosenAnswer}</strike>`;
+//                 textColors.correctAnswer = "text-success";
+//             }
+//         }
+//         str += `
+//          <div>
+//            <span class="${textColors.chosenAnswer}">
+//              ${i+1}. ${data[i].question}
+//              ${chosenAnswer}
+//            </span>
+//            <span class="${textColors.correctAnswer}">${correctAnswer}</span>
+//          </div>`
+//         }
 //     tags.answersConfirmation.innerHTML = str;
 //     tags.Questions.style.display = 'none';
 //     tags.answers.style.display = 'block';
-//   }
-  
-//   function submitAnswers(){
-//     answersSubmited = true;
-//     loadAnswersConfirmation();
-//     tags.bSubmit.style.display = 'none';
-//     tags.bStart.style.display = 'block';
-//   }
-  
-//   function startQuiz(){
-//     initVariables();
-//     loadQuestionPage();
-//     tags.Questions.style.display = 'block';
-//     tags.answers.style.display = 'none';
-//     tags.bSubmit.style.display = 'block';
-//     tags.bStart.style.display = 'none';
-//   }
+//     }
+
+//     submitAnswers(){
+//         answersSubmited = true;
+//         loadAnswersConfirmation();
+//         tags.bSubmit.style.display = 'none';
+//         tags.bStart.style.display = 'block';
+//    }
+
+//     startQuiz(){
+//         initVariables();
+//         loadQuestionPage();
+//         tags.Questions.style.display = 'block';
+//         tags.answers.style.display = 'none';
+//         tags.bSubmit.style.display = 'block';
+//         tags.bStart.style.display = 'none';
+//    }
+// }
+
+const Header = ( {id, question, length} ) => {
+    return(
+        <div className="text-center col-12 col-sm-12">
+            <div className="row">
+                <img
+                    src={question.img}
+                    id="qimage"
+                    width={260}
+                    height={260} />
+                <p className="text-left answer" id="numberOfAnswered"> {question.num} of {length} answered</p>
+			    <div className="progress">
+				    <div
+                        classname="progress-bar"
+                        role="progressbar"
+                        id="progressBar"
+                        aria-valuenow={70}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        style={{width: '70%'}}>
+                        <span classname="sr-only" id="completedPercent">
+                            {(question.num) * 20}% completado
+                        </span>
+                    </div>
+			    </div>
+            </div>
+        </div>
+    )
+}
+
+const Section = ( {question, alternatives, onItemSelected} ) => {
+
+    const items = alternatives.map ( (item, index ) => {
+        return (    
+            <li key = {index}>
+                <div class="col-md-4 col-sm-4">
+                    <button class="text-center"  id="a2" onClick = { () => onItemSelected (index) } > {item} </button>
+                </div> 
+        </li>);
+    })
+    return(
+        <div className="container">
+            <div class="row text-center square" width="100%" id="Questions">
+                <h2 class="title" id="Question">  {question} </h2>
+               
+                <ul>
+                 {items}
+                </ul>
+            </div>
+
+            <div class="row text-center square" width="100%" id="myAnswers" hidden>
+                <h2 class="title" id="Message"></h2>
+                <div id="answersConfirmation"></div>
+                <div class="col-md-12 col-sm-12 text-center"  id="bSubmit">
+                    <button onclick="submitAnswers()">Submit</button>
+                </div>
+                <div class="col-md-12 col-sm-12 text-center" id="bStart" hidden>
+                    <button onclick="startQuiz()">Start again</button>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 // class Questions extends React.Component {
 //    constructor(props) {
@@ -248,13 +278,34 @@ const Section = props => {
 //    { text: "Aprender JSX", checked: true },
 //    { text: "Aprender States", checked: false }
 // ];
-const Application = ({data}) => {
-    return(
-        <div className="reserve">
-            <Header className="header" data={data}/>
-            <Section data={data} />
-        </div>
-    );
+class Application extends React.Component  {
+
+    constructor (props) {
+        super (props);
+
+        const firstId = 0;
+        this.state = {
+            counter : firstId,        
+            question: props.data[firstId]
+        }
+    } 
+
+    render () {
+        const item = this.state.question;
+
+        return(
+            <div className="reserve">
+                <Header className="header" question={item} id = {0} length = {this.props.data.length}/>
+                <Section question={item.question} alternatives = {item.alternatives} onItemSelected = { idx => {
+                        const nextId = this.state.counter + 1; 
+                        this.setState ( {
+                            counter : nextId,
+                            question : this.props.data[nextId]
+                        })
+                    } } />
+            </div>
+        );    
+    }
 }
 
 ReactDOM.render(<Application data={DATA}/>, document.getElementById("container"));
