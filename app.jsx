@@ -1,40 +1,44 @@
-  let DATA = [
-    {
-      num:1,
-      img: "img/plane.svg",
-      question:"Which is the oldest airline in the world?",
-      alternatives:["Avianca","KML","Qantas"],
-      answer:1
-    },
-    {
-      num:2,
-      img: "img/ship.svg",
-      question:"Which is the largest port in the world?",
-      alternatives:["Port of Shanghai","Port of Singapore","Port of Rotterdam"],
-      answer:0
-    },
-    {
-      num:3,
-      img: "img/bycicle.svg",
-      question:"What is the longest distance cycling backwards?",
-      alternatives:["89.30 km","675.10 km","337.60 km"],
-      answer:2
-    },
-    {
-      num:4,
-      img: "img/bus.svg",
-      question:"What is the highest speed ever reached by a school bus?",
-      alternatives:["590 km/h","320 km/h","245 km/h"],
-      answer:0
-    },
-    {
-      num:5,
-      img: "img/car.svg",
-      question:"What is the longest car trip on one tank of gas?",
-      alternatives:["2617 km","3568 km","1732 km"],
-      answer:0
-    }
-  ];
+let DATA = [
+  {
+    num: 1,
+    img: "img/plane.svg",
+    question: "Which is the oldest airline in the world?",
+    alternatives: ["Avianca", "KML", "Qantas"],
+    answer: 1
+  },
+  {
+    num: 2,
+    img: "img/ship.svg",
+    question: "Which is the largest port in the world?",
+    alternatives: [
+      "Port of Shanghai",
+      "Port of Singapore",
+      "Port of Rotterdam"
+    ],
+    answer: 0
+  },
+  {
+    num: 3,
+    img: "img/bycicle.svg",
+    question: "What is the longest distance cycling backwards?",
+    alternatives: ["89.30 km", "675.10 km", "337.60 km"],
+    answer: 2
+  },
+  {
+    num: 4,
+    img: "img/bus.svg",
+    question: "What is the highest speed ever reached by a school bus?",
+    alternatives: ["590 km/h", "320 km/h", "245 km/h"],
+    answer: 0
+  },
+  {
+    num: 5,
+    img: "img/car.svg",
+    question: "What is the longest car trip on one tank of gas?",
+    alternatives: ["2617 km", "3568 km", "1732 km"],
+    answer: 0
+  }
+];
 
 //  var tags = {
 //      numberOfAnswered: document.getElementById('numberOfAnswered'),
@@ -111,16 +115,16 @@
 //         for(let i = 0; i < pageN; i++){
 //         let user_answer = myAnswers[i];
 //         let chosenAnswer = data[i].alternatives[user_answer];
-  
+
 //         let correctAnswer = "";
 //         let textColors = {
 //             chosenAnswer:"text-primary",
 //             correctAnswer:"text-danger"
 //         }
-  
+
 //         if(answersSubmited){
 //              let data_answer = data[i].answer;
-  
+
 //             if(data_answer == user_answer){
 //                 textColors.chosenAnswer = "text-success";
 //                 textColors.correctAnswer = "text-success";
@@ -162,68 +166,78 @@
 //    }
 // }
 
-const Header = ( {id, question, length} ) => {
-    return(
-        <div className="text-center col-12 col-sm-12">
-            <div className="row">
-                <img
-                    src={question.img}
-                    id="qimage"
-                    width={260}
-                    height={260} />
-                <p className="text-left answer" id="numberOfAnswered"> {question.num} of {length} answered</p>
-			    <div className="progress">
-				    <div
-                        classname="progress-bar"
-                        role="progressbar"
-                        id="progressBar"
-                        aria-valuenow={70}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                        style={{width: '70%'}}>
-                        <span classname="sr-only" id="completedPercent">
-                            {(question.num) * 20}% completado
-                        </span>
-                    </div>
-			    </div>
-            </div>
+const Header = ({ id, question, length }) => {
+  return (
+    <div className="text-center col-12 col-sm-12">
+      <div className="row">
+        <img src={question.img} id="qimage" width={260} height={260} />
+        <p className="text-left answer" id="numberOfAnswered">
+          {" "}
+          {question.num} of {length} answered
+        </p>
+        <div className="progress">
+          <div
+            classname="progress-bar"
+            role="progressbar"
+            id="progressBar"
+            aria-valuenow={question.num * 20}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            style={{ width: "70%" }}
+          >
+            <span classname="sr-only" id="completedPercent">
+              {question.num * 20}% completado
+            </span>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-const Section = ( {question, alternatives, onItemSelected} ) => {
-
-    const items = alternatives.map ( (item, index ) => {
-        return (    
-            <li key = {index}>
-                <div class="col-md-4 col-sm-4">
-                    <button class="text-center"  id="a2" onClick = { () => onItemSelected (index) } > {item} </button>
-                </div> 
-        </li>);
-    })
-    return(
-        <div className="container">
-            <div class="row text-center square" width="100%" id="Questions">
-                <h2 class="title" id="Question">  {question} </h2>
-               
-                <ul>
-                 {items}
-                </ul>
-            </div>
-
-            <div class="row text-center square" width="100%" id="myAnswers" hidden>
-                <h2 class="title" id="Message"></h2>
-                <div id="answersConfirmation"></div>
-                <div class="col-md-12 col-sm-12 text-center"  id="bSubmit">
-                    <button onclick="submitAnswers()">Submit</button>
-                </div>
-                <div class="col-md-12 col-sm-12 text-center" id="bStart" hidden>
-                    <button onclick="startQuiz()">Start again</button>
-                </div>
-            </div>
+const Section = ({ question, alternatives, onItemSelected }) => {
+  const items = alternatives.map((item, index) => {
+    return (
+      <li key={index}>
+        <div class="col-md-4 col-sm-4">
+          <button
+            class="text-center"
+            id="a2"
+            onClick={() => onItemSelected(index)}
+          >
+            {" "}
+            {item}{" "}
+          </button>
         </div>
-    )
-}
+      </li>
+    );
+  });
+  return (
+    <div classname="container">
+      <div className="row text-center square" width="100%" id="Questions">
+        <h2 className="title" id="Question">
+          {question}
+        </h2>
+        <ul>{items}</ul>
+      </div>
+      <div
+        className="row text-center square"
+        width="100%"
+        id="myAnswers"
+        hidden
+      >
+        <h2 className="title" id="Message" />
+        <div id="answersConfirmation" />
+        <div className="col-md-12 col-sm-12 text-center" id="bSubmit">
+          <button onclick="submitAnswers()">Submit</button>
+        </div>
+        <div className="col-md-12 col-sm-12 text-center" id="bStart" hidden>
+          <button onclick="startQuiz()">Start again</button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // class Questions extends React.Component {
 //    constructor(props) {
@@ -278,34 +292,44 @@ const Section = ( {question, alternatives, onItemSelected} ) => {
 //    { text: "Aprender JSX", checked: true },
 //    { text: "Aprender States", checked: false }
 // ];
-class Application extends React.Component  {
+class Application extends React.Component {
+  constructor(props) {
+    super(props);
+    const firstId = 0;
+    this.state = {
+      counter: firstId,
+      question: props.data[firstId]
+    };
+  }
 
-    constructor (props) {
-        super (props);
+  render() {
+    const item = this.state.question;
 
-        const firstId = 0;
-        this.state = {
-            counter : firstId,        
-            question: props.data[firstId]
-        }
-    } 
-
-    render () {
-        const item = this.state.question;
-
-        return(
-            <div className="reserve">
-                <Header className="header" question={item} id = {0} length = {this.props.data.length}/>
-                <Section question={item.question} alternatives = {item.alternatives} onItemSelected = { idx => {
-                        const nextId = this.state.counter + 1; 
-                        this.setState ( {
-                            counter : nextId,
-                            question : this.props.data[nextId]
-                        })
-                    } } />
-            </div>
-        );    
-    }
+    return (
+      <div className="reserve">
+        <Header
+          className="header"
+          question={item}
+          id={0}
+          length={this.props.data.length}
+        />
+        <Section
+          question={item.question}
+          alternatives={item.alternatives}
+          onItemSelected={idx => {
+            const nextId = this.state.counter + 1;
+            this.setState({
+              counter: nextId,
+              question: this.props.data[nextId]
+            });
+          }}
+        />
+      </div>
+    );
+  }
 }
 
-ReactDOM.render(<Application data={DATA}/>, document.getElementById("container"));
+ReactDOM.render(
+  <Application data={DATA} />,
+  document.getElementById("container")
+);
